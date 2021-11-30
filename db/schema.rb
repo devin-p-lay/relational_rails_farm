@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_30_042338) do
+ActiveRecord::Schema.define(version: 2021_11_30_045350) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,16 +19,20 @@ ActiveRecord::Schema.define(version: 2021_11_30_042338) do
     t.string "name"
     t.integer "age"
     t.boolean "rescue"
+    t.bigint "farm_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["farm_id"], name: "index_animals_on_farm_id"
   end
 
   create_table "chores", force: :cascade do |t|
     t.string "title"
     t.integer "duration"
     t.boolean "daily"
+    t.bigint "farmer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["farmer_id"], name: "index_chores_on_farmer_id"
   end
 
   create_table "farmers", force: :cascade do |t|
@@ -47,4 +51,6 @@ ActiveRecord::Schema.define(version: 2021_11_30_042338) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "animals", "farms"
+  add_foreign_key "chores", "farmers"
 end

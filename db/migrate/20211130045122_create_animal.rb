@@ -4,6 +4,7 @@ class CreateAnimal < ActiveRecord::Migration[5.2]
       t.string :name
       t.integer :age
       t.boolean :rescue
+      t.references :farm, foreign_key: true
 
       t.timestamps
     end
