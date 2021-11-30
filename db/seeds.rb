@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+@farm1 = Farm.create!(name: "Tegriddy Farms", acreage: 100, family_owned: true)
+@farm2 = Farm.create!(name: "J Mart Farms", acreage: 150, family_owned: true)
+
+@farmer1 = Farmer.create!(name: "Randy Marsh", age: 45, full_time: true)
+@farmer2 = Farmer.create!(name: "Mr. Garrison", age: 50, full_time: true)
