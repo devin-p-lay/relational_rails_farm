@@ -5,6 +5,7 @@ describe "Chores Index Page" do
     @farmer1 = Farmer.create!(name: "Randy Marsh", age: 45, full_time: true)
     @chore1  = Chore.create!(title: "Milking Cows", duration: 2, daily: true, farmer_id: @farmer1.id)
     @chore2  = Chore.create!(title: "Mowing", duration: 3, daily: true, farmer_id: @farmer1.id)
+    visit '/chores'
   end
 
   describe 'When I visit the Chore index page' do

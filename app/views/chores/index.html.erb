@@ -1,0 +1,9 @@
+<h1> Chores </h1>
+
+<%  @chores.each do |chore|  %>
+  <div id="chore-<%= chore.id %>">
+    <h3> <%= chore.title %></h3>
+    <p> <%= chore.duration %></p>
+    <p> <%= chore.daily %></p>
+  </div>
+<% end %>
