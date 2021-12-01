@@ -10,3 +10,6 @@
 
 @farmer1 = Farmer.create!(name: "Randy Marsh", age: 45, full_time: true)
 @farmer2 = Farmer.create!(name: "Mr. Garrison", age: 50, full_time: true)
+
+@animal1 = Animal.create!(name: "Pepper Pig", age: 3, rescue: true, farm_id: @farm1.id)
+@animal2 = Animal.create!(name: "Carly Cow", age: 4, rescue: true, farm_id: @farm1.id)
