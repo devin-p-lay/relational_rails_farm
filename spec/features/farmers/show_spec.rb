@@ -18,5 +18,10 @@ describe 'Farmer Show Page' do
     it "I see a count of the number of chores associatedwith this farmer" do
       expect(page).to have_content('Number of chores: 2')
     end
+
+    it 'i see a link that takes me to that farm animals index page' do
+      click_link "#{@farmer1.name} Chores"
+      expect(current_path).to eq("/farmers/#{@farmer1.id}/chores")
+    end
   end
 end
