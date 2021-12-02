@@ -23,4 +23,6 @@ Things you may want to cover:
 
 * ...
 
+Schema:
+![Screen Shot 2021-11-29 at 7 15 12 PM](https://user-images.githubusercontent.com/87088092/144301116-55a59fec-fc34-4b95-b710-4d33b93e8096.png)
 
