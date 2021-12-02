@@ -1,7 +1,7 @@
 <h1>Farmers</h1>
 
 <% @farmers.each do |farmer| %>
-  <div>
-    <%= farmer.name %>
-  </div>
+<div id="farmer-<%= farmer.id %>">
+  <p><%= farmer.name %> - created at: <%= farmer.created_at %>
+</div>
 <% end %>

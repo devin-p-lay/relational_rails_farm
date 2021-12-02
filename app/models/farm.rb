@@ -5,6 +5,4 @@ class Farm < ApplicationRecord
   validates_presence_of :acreage
   validates_presence_of :family_owned
 
-  def alphabetical_farms
-  end
 end
