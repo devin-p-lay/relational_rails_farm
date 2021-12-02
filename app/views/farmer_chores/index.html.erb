@@ -1,0 +1,9 @@
+<h1><%= @farmer.name %></h1>
+<% @farmer.chores.each do |chore| %>
+  <div id="chore-<%= chore.id %>">
+    <h3>Chores: </h3>
+    <p>Title: <%= chore.title %></p>
+    <p>Duration: <%= chore.duration %> hour(s)</p>
+    <p>Daily: <%= chore.daily %></p>
+  </div>
+<% end %>
