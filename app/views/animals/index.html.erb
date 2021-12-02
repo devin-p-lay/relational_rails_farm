@@ -1,0 +1,9 @@
+<h1>Animals</h1>
+
+<% @animals.each do |animal| %>
+  <div id="animal-<%= animal.id %>">
+    <h3><%= animal.name %></h3>
+    <p>Age: <%= animal.age %> </p>
+    <p>Rescue: <%= animal.rescue %> </p>
+  </div>
+<% end %>
