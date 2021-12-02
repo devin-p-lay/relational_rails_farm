@@ -1,7 +1,7 @@
 <h1>Farms</h1>
 
 <% @farms.each do |farm| %>
-  <div>
-    <%= farm.name %>
+  <div id="farm-<%= farm.id %>">
+    <p><%= farm.name %> - created at: <%= farm.created_at %>
   </div>
 <% end %>

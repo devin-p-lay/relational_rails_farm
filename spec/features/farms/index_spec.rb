@@ -14,4 +14,19 @@ describe 'Farm Index Page' do
       expect(page).to have_content(@farm2.name)
     end
   end
+
+  describe 'index sorted by most recently created' do
+    it 'i see farms are ordered by most recently created first' do
+      expect(@farm2.name).to appear_before(@farm1.name)
+    end
+
+    it 'next to each farm, i see when it was created' do
+      within "#farm-#{@farm2.id}" do
+        expect(page).to have_content(@farm2.created_at)
+      end
+      within "#farm-#{@farm1.id}" do
+        expect(page).to have_content(@farm1.created_at)
+      end
+    end
+  end
 end

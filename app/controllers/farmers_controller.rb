@@ -1,6 +1,6 @@
 class FarmersController < ApplicationController
   def index
-    @farmers = Farmer.all
+    @farmers = Farmer.order_by_most_recently_created
   end
 
   def show
