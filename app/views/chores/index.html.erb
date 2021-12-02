@@ -2,8 +2,8 @@
 
 <%  @chores.each do |chore|  %>
   <div id="chore-<%= chore.id %>">
-    <h3> <%= chore.title %></h3>
-    <p> <%= chore.duration %></p>
-    <p> <%= chore.daily %></p>
+    <h3><%= chore.title %></h3>
+    <p>Duration(in hours): <%= chore.duration %></p>
+    <p>Daily chore: <%= chore.daily %></p>
   </div>
 <% end %>

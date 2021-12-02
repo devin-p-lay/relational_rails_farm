@@ -20,7 +20,7 @@ describe 'Farm Show Page' do
     end
 
     it 'i see a link that takes me to that farm animals index page' do
-      click_link "Animals"
+      click_link "#{@farm1.name} Animals"
       expect(current_path).to eq("/farms/#{@farm1.id}/animals")
     end
   end
