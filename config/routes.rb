@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get '/farmers/:id', to: 'farmers#show'
 
   get '/animals', to: 'animals#index'
+  get 'animals/:id', to:'animals#show'
 
   get '/chores', to: 'chores#index'
+  get '/chores/:id', to: 'chores#show'
 end
