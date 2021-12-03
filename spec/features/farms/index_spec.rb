@@ -29,4 +29,11 @@ describe 'Farm Index Page' do
       end
     end
   end
+
+  describe 'creating a new farm' do
+    it 'a link takes me to a form to create a new farm' do
+      click_link "Create New Farm"
+      expect(current_path).to eq("/farms/new")
+    end
+  end
 end

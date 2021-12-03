@@ -15,9 +15,6 @@ describe 'Farm Show Page' do
       expect(page).to have_content(@farm1.family_owned)
     end
 
-    it 'i see a count of the number of animals associated with this farm' do
-      expect(page).to have_content("Number of animals: 2")
-    end
 
     it 'i see a link that takes me to that farm animals index page' do
       click_link "#{@farm1.name} Animals"
