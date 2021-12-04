@@ -12,6 +12,9 @@ describe 'Farmer Chores New Page' do
       fill_in "Duration", with: "2"
       fill_in "Daily", with: 'no'
       click_button "Create New Chore"
+
+      expect(current_path).to eq("/farmers/#{@farmer1.id}/chores")
+      expect(page).to have_content("Friday Shed Cleanup")
     end
   end
 end
