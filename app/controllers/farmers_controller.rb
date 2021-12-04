@@ -20,6 +20,20 @@ class FarmersController < ApplicationController
     end
   end
 
+  def edit
+    @farmer = Farmer.find(params[:id])
+  end
+
+  def update
+    farmer = Farmer.find(params[:id])
+    if farmer.update(farmer_params)
+      redirect_to "/farmers/#{farmer.id}"
+    else
+      redirect_to "/farmers/#{farmer.id}/edit"
+    end
+  end
+
+
   private
 
     def farmer_params

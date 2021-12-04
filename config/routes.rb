@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get '/farmers/new', to: 'farmers#new'
   get '/farmers/:id', to: 'farmers#show'
   post '/farmers', to: 'farmers#create'
+  get '/farmers/:id/edit', to: 'farmers#edit'
+  patch '/farmers/:id', to: 'farmers#update'
 
   get '/animals', to: 'animals#index'
   get 'animals/:id', to:'animals#show'
