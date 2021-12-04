@@ -13,5 +13,12 @@ describe 'Animal Show Page'do
       expect(page).to have_content(@animal1.age)
       expect(page).to have_content(@animal1.rescue)
     end
+
+    describe 'i see a link to update that animal' do
+      it 'when i click on that link, i am taken to animal update page' do
+        click_link "Update Animal"
+        expect(current_path).to eq("/animals/#{@animal1.id}/edit")
+      end
+    end
   end
 end
