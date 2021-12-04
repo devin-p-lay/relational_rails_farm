@@ -1,0 +1,14 @@
+<h1>Update <%= @chore.title %></h1>
+
+<%= form_with url: "/chores/#{@chore.id}", method: :patch, local: true do |f| %>
+  <%= f.label :title, "Title" %>
+  <%= f.text_field :title %>
+
+  <%= f.label :duration, "Duration" %>
+  <%= f.text_field :duration %>
+
+  <%= f.label :daily, "Daily" %>
+  <%= f.text_field :daily %>
+
+  <%= f.submit "Submit Update" %>
+<% end %>
