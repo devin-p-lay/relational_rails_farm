@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   get '/chores/:id', to: 'chores#show'
 
   get '/farms/:id/animals', to: 'farm_animals#index'
+  get '/farms/:id/animals/new', to: 'farm_animals#new'
+  post '/farms/:id/animals', to: 'farm_animals#create'
 
   get '/farmers/:id/chores', to: 'farmer_chores#index'
 end
