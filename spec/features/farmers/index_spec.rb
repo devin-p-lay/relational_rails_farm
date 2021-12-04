@@ -26,5 +26,12 @@ describe 'Farmer Index Page' do
         expect(page).to have_content(@farmer1.created_at)
       end
     end
+
+    describe 'creating a new farmer' do
+      it "a link takes me to a form to create a new farmer" do
+        click_link "Create New Farmer"
+        expect(current_path).to eq("farmers/new")
+      end
+    end
   end
 end
