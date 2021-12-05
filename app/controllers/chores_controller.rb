@@ -1,6 +1,6 @@
 class ChoresController < ApplicationController
   def index
-    @chores = Chore.all
+    @chores = Chore.daily_filter
   end
 
   def show
@@ -13,11 +13,8 @@ class ChoresController < ApplicationController
 
   def update
     chore = Chore.find(params[:id])
-    if chore.update(chore_params)
-      redirect_to "/chores/#{chore.id}"
-    else
-      redirect_to "/chores/#{chore.id}/edit"
-    end
+    chore.update(chore_params)
+    redirect_to "/chores/#{chore.id}"
   end
 
   def destroy

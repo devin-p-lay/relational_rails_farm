@@ -5,7 +5,7 @@ describe 'Animal Index Page' do
     @farm1 = Farm.create!(name: "Tegriddy Farms", acreage: 100, family_owned: true)
     @animal1 = Animal.create!(name: "Pepper Pig", age: 3, rescue: true, farm_id: @farm1.id)
     @animal2 = Animal.create!(name: "Carly Cow", age: 5, rescue: true, farm_id: @farm1.id)
-    # @animal3 = Animal.create!(name: "Harriet the Horse", age: 7, rescue: true, farm_id: @farm1.id)
+    @animal3 = Animal.create!(name: "Harriet the Horse", age: 7, rescue: false, farm_id: @farm1.id)
     visit '/animals'
   end
 
@@ -24,7 +24,9 @@ describe 'Animal Index Page' do
       end
     end
 
-    #test for only seeing the true boolean values dissapeard during git workflow
+    it "I only see the rescue animals" do
+      expect(page).to_not have_content(@animal3.name)
+    end
 
     describe 'update animal' do
       it 'link to update each animal' do
@@ -38,12 +40,12 @@ describe 'Animal Index Page' do
     describe 'delete animal' do
       it 'link to delete each animal' do
         within "#animal-#{@animal1.id}" do
-          click_link "Delete #{@animal1.name}"
+          click_link "delete"
         end
 
         expect(current_path).to eq("/animals")
         expect(page).to_not have_content(@animal1.name)
       end
-    end 
+    end
   end
 end

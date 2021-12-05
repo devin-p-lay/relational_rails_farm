@@ -8,11 +8,11 @@ class Farm < ApplicationRecord
     Animal.where(farm_id: self.id).count
   end
 
-  def alphamal
+  def animal_order
     animals.order(:name)
   end
 
-  def age_filter(age)
-    animals.where("age > ?", age)
-  end 
+  def self.age_filter(age)
+    Animal.where("age > ?", age)
+  end
 end

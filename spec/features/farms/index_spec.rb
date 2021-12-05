@@ -10,7 +10,6 @@ describe 'Farm Index Page' do
 
   describe 'display' do
     it 'index farm' do
-
       expect(page).to have_content(@farm1.name)
       expect(page).to have_content(@farm2.name)
     end
@@ -49,9 +48,8 @@ describe 'Farm Index Page' do
     describe 'destroy farm' do
       it 'link to delete next to each name' do
         within "#farm-#{@farm3.id}" do
-          click_link "Delete #{@farm3.name}"
+          click_link 'delete'
         end
-
         expect(current_path).to eq("/farms")
         expect(page).to_not have_content(@farm3.name)
       end

@@ -1,11 +1,12 @@
 <h1>Animals</h1>
+<hr>
 
 <% @animals.each do |animal| %>
   <div id="animal-<%= animal.id %>">
     <h3><%= animal.name %></h3>
     <p>Age: <%= animal.age %> </p>
     <p>Rescue: <%= animal.rescue %> </p>
-    <p><%= link_to 'edit', "animals/#{animal.id}/edit" %></p>
-    <p><%= link_to "Delete #{animal.name}", "animals/#{animal.id}/destroy", method: :delete %></p>
+    <p><%= link_to 'edit', "animals/#{animal.id}/edit" %> | <%= link_to "delete", "animals/#{animal.id}/destroy", method: :delete %></p>
+    <hr>
   </div>
 <% end %>

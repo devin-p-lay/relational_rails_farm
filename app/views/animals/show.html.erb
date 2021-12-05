@@ -1,5 +1,7 @@
+<hr>
 <h1><%= @animal.name %></h1>
+<hr>
 <h3>Age: <%= @animal.age %></h3>
 <h3>Rescue: <%= @animal.rescue %></h3>
-<h2><%= link_to "Update Animal", "/animals/#{@animal.id}/edit" %></h2>
-<h2><%= link_to "Delete #{@animal.name}", "/animals/#{@animal.id}/destroy", method: :delete %></h2>
+<p><%= link_to "edit", "/animals/#{@animal.id}/edit" %> | <%= link_to 'delete', "/animals/#{@animal.id}/destroy", method: :delete %></p>
+

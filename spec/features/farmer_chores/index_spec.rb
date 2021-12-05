@@ -33,12 +33,23 @@ describe "Farmer Chores Index Page " do
     end
 
     describe '::Alphabetical Sort' do
-      xit "i see a link to sort children in alphabetical order" do
+      it "i see a link to sort children in alphabetical order" do
         click_link "Sort Alphabetically"
 
         expect(current_path).to eq("/farmers/#{@farmer1.id}/chores/")
         expect(@chore3.title).to appear_before(@chore1.title)
         expect(@chore1.title).to appear_before(@chore2.title)
+      end
+    end
+
+    describe 'Display records over a given threshold' do
+      it 'i see a form that allows me to input a number value' do
+        fill_in :duration, with: '2'
+        click_button 'Apply'
+
+        expect(page).to have_content(@chore1.title)
+        expect(page).to have_content(@chore2.title)
+        expect(page).to_not have_content(@chore3.title)
       end
     end
   end

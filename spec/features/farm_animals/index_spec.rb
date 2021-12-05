@@ -32,7 +32,7 @@ describe "Farm Animals Index Page" do
     end
 
     describe '::Alphabetical Sort' do
-      xit 'i see a link to sort children in alphabetical order' do
+      it 'i see a link to sort children in alphabetical order' do
         click_link "Sort Alphabetically"
         expect(current_path).to eq("/farms/#{@farm1.id}/animals")
         expect(@animal2.name).to appear_before(@animal3.name)
@@ -45,9 +45,9 @@ describe "Farm Animals Index Page" do
         fill_in :age, with: '5'
         click_button 'Apply'
 
-        expect(page).to_not have_content(@animal3.name)
-        expect(page).to have_content(@animal1.name)
-        expect(page).to have_content(@animal2.name)
+        expect(page).to have_content(@animal3.name)
+        expect(page).to_not have_content(@animal1.name)
+        expect(page).to_not have_content(@animal2.name)
       end
     end
   end
