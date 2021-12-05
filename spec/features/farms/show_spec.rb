@@ -20,5 +20,10 @@ describe 'Farm Show Page' do
       click_link "#{@farm1.name} Animals"
       expect(current_path).to eq("/farms/#{@farm1.id}/animals")
     end
+
+    it 'i see a link to update that farm' do
+      click_link "Update #{@farm1.name}"
+      expect(current_path).to eq("/farms/#{@farm1.id}/edit")
+    end
   end
 end
