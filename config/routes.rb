@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post '/farms', to: 'farms#create'
   get '/farms/:id/edit', to: 'farms#edit'
   patch '/farms/:id', to: 'farms#update'
+  delete '/farms/:id/destroy', to: 'farms#destroy'
 
   get '/farmers', to: 'farmers#index'
   get '/farmers/new', to: 'farmers#new'
