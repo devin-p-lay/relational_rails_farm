@@ -22,6 +22,12 @@ describe "Farmer Chores Index Page " do
         expect(page).to have_content(@chore2.daily)
       end
     end
-  end
 
+    describe 'create chore' do
+      it 'when i click the link to create animal, i am taken to a farm animal new page' do
+        click_link "Create New Chore"
+        expect(current_path).to eq("/farmers/#{@farmer1.id}/chores/new")
+      end
+    end
+  end
 end

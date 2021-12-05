@@ -22,5 +22,12 @@ describe "Farm Animals Index Page" do
         expect(page).to have_content(@animal2.rescue)
       end
     end
+
+    describe 'create animal' do
+      it 'when i click the link to create animal, i am taken to a farm animal new page' do
+        click_link "Create New Animal"
+        expect(current_path).to eq("/farms/#{@farm1.id}/animals/new")
+      end
+    end 
   end
 end
