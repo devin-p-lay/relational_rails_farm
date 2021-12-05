@@ -8,7 +8,6 @@ describe Farm do
   describe 'validations' do
     it { should validate_presence_of :name }
     it { should validate_presence_of :acreage }
-    it { should validate_presence_of :family_owned }
   end
 
   describe 'model methods' do

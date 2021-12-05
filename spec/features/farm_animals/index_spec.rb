@@ -3,8 +3,9 @@ require 'rails_helper'
 describe "Farm Animals Index Page" do
   before do
     @farm1 = Farm.create!(name: "Tegriddy Farms", acreage: 100, family_owned: true)
-    @animal1 = Animal.create!(name: "Pepper Pig", age: 3, rescue: true, farm_id: @farm1.id)
-    @animal2 = Animal.create!(name: "Carly Cow", age: 4, rescue: true, farm_id: @farm1.id)
+    @animal1 = Animal.create!(name: "Pepper the Pig", age: 3, rescue: true, farm_id: @farm1.id)
+    @animal2 = Animal.create!(name: "Carly the Cow", age: 4, rescue: true, farm_id: @farm1.id)
+    @animal3 = Animal.create!(name: "Harriet the Horse", age: 4, rescue: true, farm_id: @farm1.id)
     visit "farms/#{@farm1.id}/animals"
   end
 
@@ -28,6 +29,15 @@ describe "Farm Animals Index Page" do
         click_link "Create New Animal"
         expect(current_path).to eq("/farms/#{@farm1.id}/animals/new")
       end
-    end 
+    end
+
+    describe '::Alphabetical Sort' do
+      it 'i see a link to sort children in alphabetical order' do
+        click_link "Sort Alphabetically"
+        expect(current_path).to eq("/farms/#{@farm1.id}/animals")
+        expect(@animal2.name).to appear_before(@animal3.name)
+        expect(@animal3.name).to appear_before(@animal1.name)
+      end
+    end
   end
 end

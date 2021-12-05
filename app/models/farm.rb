@@ -7,4 +7,8 @@ class Farm < ApplicationRecord
   def animal_count
     Animal.where(farm_id: self.id).count
   end
+
+  def alphamal
+    animals.order(:name)
+  end
 end
