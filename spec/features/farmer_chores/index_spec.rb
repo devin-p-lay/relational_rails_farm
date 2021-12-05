@@ -5,6 +5,8 @@ describe "Farmer Chores Index Page " do
     @farmer1 = Farmer.create!(name: "Randy Marsh", age: 45, full_time: true)
     @chore1  = Chore.create!(title: "Milking Cows", duration: 2, daily: true, farmer_id: @farmer1.id)
     @chore2  = Chore.create!(title: "Mowing", duration: 3, daily: true, farmer_id: @farmer1.id)
+    @chore3  = Chore.create!(title: "Apple Picking", duration: 3, daily: true, farmer_id: @farmer1.id)
+
     visit "/farmers/#{@farmer1.id}/chores"
   end
 
@@ -27,6 +29,16 @@ describe "Farmer Chores Index Page " do
       it 'when i click the link to create animal, i am taken to a farm animal new page' do
         click_link "Create New Chore"
         expect(current_path).to eq("/farmers/#{@farmer1.id}/chores/new")
+      end
+    end
+
+    describe '::Alphabetical Sort' do
+      it "i see a link to sort children in alphabetical order" do
+        click_link "Sort Alphabetically"
+
+        expect(current_path).to eq("/farmers/#{@farmer1.id}/chores/")
+        expect(@chore3.title).to appear_before(@chore1.title)
+        expect(@chore1.title).to appear_before(@chore2.title)
       end
     end
   end
