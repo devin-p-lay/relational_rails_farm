@@ -3,6 +3,7 @@
 <% @farms.each do |farm| %>
   <div id="farm-<%= farm.id %>">
     <p><%= farm.name %> - created at: <%= farm.created_at %>
+      <p><%= link_to 'edit', "/farms/#{farm.id}/edit" %></p>
   </div>
 <% end %>
 

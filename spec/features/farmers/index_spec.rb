@@ -33,5 +33,14 @@ describe 'Farmer Index Page' do
         expect(current_path).to eq("/farmers/new")
       end
     end
+
+    describe 'update farmer' do
+      it "link to update next to each name" do
+        within "#farmer-#{@farmer1.id}" do
+          click_link "edit"
+          expect(current_path).to eq("/farmers/#{@farmer1.id}/edit")
+        end
+      end
+    end
   end
 end

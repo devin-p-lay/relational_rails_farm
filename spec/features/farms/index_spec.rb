@@ -7,33 +7,42 @@ describe 'Farm Index Page' do
     visit '/farms'
   end
 
-  describe 'when i visit Farm index page' do
-    it 'i see the name of each farm in the system' do
+  describe 'display' do
+    it 'index farm' do
 
       expect(page).to have_content(@farm1.name)
       expect(page).to have_content(@farm2.name)
     end
-  end
 
-  describe 'index sorted by most recently created' do
-    it 'i see farms are ordered by most recently created first' do
-      expect(@farm2.name).to appear_before(@farm1.name)
+    describe 'index sorted by most recently created' do
+      it 'farms are ordered by most recently created first' do
+        expect(@farm2.name).to appear_before(@farm1.name)
+      end
+
+      it 'next to each farm, i see when it was created' do
+        within "#farm-#{@farm2.id}" do
+          expect(page).to have_content(@farm2.created_at)
+        end
+        within "#farm-#{@farm1.id}" do
+          expect(page).to have_content(@farm1.created_at)
+        end
+      end
     end
 
-    it 'next to each farm, i see when it was created' do
-      within "#farm-#{@farm2.id}" do
-        expect(page).to have_content(@farm2.created_at)
-      end
-      within "#farm-#{@farm1.id}" do
-        expect(page).to have_content(@farm1.created_at)
+    describe 'new farm' do
+      it 'link takes me to a form to create new farm' do
+        click_link "Create New Farm"
+        expect(current_path).to eq("/farms/new")
       end
     end
-  end
 
-  describe 'creating a new farm' do
-    it 'a link takes me to a form to create a new farm' do
-      click_link "Create New Farm"
-      expect(current_path).to eq("/farms/new")
+    describe 'update farm' do
+      it 'link to update next to each name' do
+        within "#farm-#{@farm1.id}" do
+          click_link "edit"
+          expect(current_path).to eq("/farms/#{@farm1.id}/edit")
+        end
+      end
     end
   end
 end
