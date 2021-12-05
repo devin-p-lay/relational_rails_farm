@@ -5,7 +5,7 @@ class FarmAnimalsController < ApplicationController
     if params[:sort]
       @animals = @farm.animal_order
     elsif params[:age]
-      @animals = @farm.age_filter(params[:age])
+      @animals = Farm.age_filter(params[:age])
     else
       @animals = @farm.animals
     end
@@ -16,11 +16,7 @@ class FarmAnimalsController < ApplicationController
 
   def create
     farm_animal = @farm.animals.create!(fa_params)
-    if farm_animal.save
-      redirect_to "/farms/#{@farm.id}/animals"
-    else
-      redirect_to "/farms/#{@farm.id}/animals/new"
-    end
+    redirect_to "/farms/#{@farm.id}/animals"
   end
 
   private

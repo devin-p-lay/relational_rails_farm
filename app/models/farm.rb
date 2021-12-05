@@ -12,7 +12,7 @@ class Farm < ApplicationRecord
     animals.order(:name)
   end
 
-  def age_filter(age)
-    animals.where("age > ?", age)
+  def self.age_filter(age)
+    Animal.where("age > ?", age)
   end
 end

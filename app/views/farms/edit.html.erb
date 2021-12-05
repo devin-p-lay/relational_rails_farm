@@ -2,13 +2,13 @@
 
 <%= form_with url: "/farms/#{@farm.id}", method: :patch, local: true do |f| %>
   <%= f.label :name, 'Name' %>
-  <%= f.text_field :name %>
+  <%= f.text_field :name, value: @farm.name %>
 
   <%= f.label :acreage, 'Acreage' %>
-  <%= f.text_field :acreage %>
+  <%= f.text_field :acreage, value: @farm.acreage %>
 
   <%= f.label :family_owned, 'Family-Owned' %>
-  <%= f.text_field :family_owned %>
+  <%= f.text_field :family_owned, value: @farm.family_owned %>
 
   <%= f.submit "Submit" %>
 <% end %>

@@ -24,6 +24,11 @@ describe Farm do
         expect(Farm.order_by_most_recently_created).to eq([@farm2, @farm1])
       end
     end
+    describe '::age_filter' do
+      it 'can filter based on age' do
+        expect(Farm.age_filter(5)).to eq([@animal3])
+      end
+    end
 
     describe '#instance_methods' do
       describe '#animal_count' do
@@ -37,6 +42,7 @@ describe Farm do
           expect(@farm1.animal_order).to eq([@animal2, @animal3, @animal1])
         end
       end
+
     end
   end
 end

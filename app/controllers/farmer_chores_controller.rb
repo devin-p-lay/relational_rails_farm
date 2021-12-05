@@ -16,11 +16,7 @@ class FarmerChoresController < ApplicationController
 
   def create
     farmer_chore = @farmer.chores.create!(fc_params)
-    if farmer_chore.save
-      redirect_to "/farmers/#{@farmer.id}/chores"
-    else
-      redirect_to "/farmers/#{@farmer.id}/chores/new"
-    end
+    redirect_to "/farmers/#{@farmer.id}/chores"
   end
 
   private

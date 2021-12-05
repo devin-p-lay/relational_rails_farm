@@ -41,5 +41,16 @@ describe "Farmer Chores Index Page " do
         expect(@chore1.title).to appear_before(@chore2.title)
       end
     end
+
+    describe 'Display records over a given threshold' do
+      it 'i see a form that allows me to input a number value' do
+        fill_in :duration, with: '2'
+        click_button 'Apply'
+
+        expect(page).to have_content(@chore1.title)
+        expect(page).to have_content(@chore2.title)
+        expect(page).to_not have_content(@chore3.title)
+      end
+    end
   end
 end

@@ -13,18 +13,15 @@ class AnimalsController < ApplicationController
 
   def update
     animal = Animal.find(params[:id])
-    if animal.update(animal_params)
-      redirect_to "/animals/#{animal.id}"
-    else
-      redirect_to "/animals/#{animal.id}/edit"
-    end
+    animal.update(animal_params)
+    redirect_to "/animals/#{animal.id}"
   end
 
   def destroy
     animal = Animal.find(params[:id])
     animal.destroy
     redirect_to "/animals"
-  end 
+  end
 
   private
     def animal_params

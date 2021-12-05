@@ -13,11 +13,7 @@ class FarmersController < ApplicationController
 
   def create
     farmer = Farmer.create!(farmer_params)
-    if farmer.save
-      redirect_to '/farmers'
-    else
-      redirect_to '/farmers/new'
-    end
+    redirect_to '/farmers'
   end
 
   def edit
@@ -26,11 +22,8 @@ class FarmersController < ApplicationController
 
   def update
     farmer = Farmer.find(params[:id])
-    if farmer.update(farmer_params)
-      redirect_to "/farmers/#{farmer.id}"
-    else
-      redirect_to "/farmers/#{farmer.id}/edit"
-    end
+    farmer.update(farmer_params)
+    redirect_to "/farmers/#{farmer.id}"
   end
 
   def destroy

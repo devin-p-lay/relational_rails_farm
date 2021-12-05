@@ -28,6 +28,11 @@ describe Farmer do
     end
 
     describe '#instance_methods' do
+      describe '#chore_count' do
+        it 'counts chores' do
+          expect(@farmer1.chore_count).to eq(3)
+        end
+      end
       describe '#chore_order' do
         it 'sorts alphabetically' do
           expect(@farmer1.chore_order).to eq([@chore1, @chore3, @chore2])
