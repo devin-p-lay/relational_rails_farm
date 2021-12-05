@@ -1,20 +1,20 @@
 class FarmerChoresController < ApplicationController
+  before_action :do_farmer
 
   def index
-    @farmer = Farmer.find(params[:id])
     if params[:sort]
-      @chores = @farmer.alphachore
+      @chores = @farmer.chore_order
+    elsif params[:duration]
+      @chores = @farmer.duration_filter(params[:duration])
     else
       @chores = @farmer.chores
     end
   end
 
   def new
-    @farmer = Farmer.find(params[:id])
   end
 
   def create
-    @farmer = Farmer.find(params[:id])
     farmer_chore = @farmer.chores.create!(fc_params)
     if farmer_chore.save
       redirect_to "/farmers/#{@farmer.id}/chores"
@@ -24,6 +24,10 @@ class FarmerChoresController < ApplicationController
   end
 
   private
+
+    def do_farmer
+      @farmer = Farmer.find(params[:id])
+    end
 
     def fc_params
       params.permit(:title, :duration, :daily, :farmer_id)

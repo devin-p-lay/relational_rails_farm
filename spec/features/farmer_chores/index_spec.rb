@@ -33,7 +33,7 @@ describe "Farmer Chores Index Page " do
     end
 
     describe '::Alphabetical Sort' do
-      xit "i see a link to sort children in alphabetical order" do
+      it "i see a link to sort children in alphabetical order" do
         click_link "Sort Alphabetically"
 
         expect(current_path).to eq("/farmers/#{@farmer1.id}/chores/")

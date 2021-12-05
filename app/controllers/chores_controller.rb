@@ -1,6 +1,6 @@
 class ChoresController < ApplicationController
   def index
-    @chores = Chore.all
+    @chores = Chore.daily_filter
   end
 
   def show

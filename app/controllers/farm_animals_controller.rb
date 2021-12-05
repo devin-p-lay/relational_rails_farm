@@ -1,8 +1,9 @@
 class FarmAnimalsController < ApplicationController
   before_action :do_farm
+
   def index
     if params[:sort]
-      @animals = @farm.alphamal
+      @animals = @farm.animal_order
     elsif params[:age]
       @animals = @farm.age_filter(params[:age])
     else

@@ -4,7 +4,15 @@ class Farmer < ApplicationRecord
   validates_presence_of :name
   validates_presence_of :age
 
-  def alphachore
-    chores.order(:name)
+  def chore_count
+    Chore.where(farmer_id: self.id).count
+  end
+
+  def chore_order
+    chores.order(:title)
+  end
+
+  def duration_filter(duration)
+    chores.where("duration > ?", duration)
   end
 end
