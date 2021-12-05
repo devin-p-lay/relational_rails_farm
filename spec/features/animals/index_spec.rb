@@ -8,8 +8,8 @@ describe 'Animal Index Page' do
     visit '/animals'
   end
 
-  describe 'when i visit a animal index page' do
-    it 'i see each animal including their attributes' do
+  describe 'display' do
+    it 'each animal including their attributes' do
       within "#animal-#{@animal1.id}" do
         expect(page).to have_content(@animal1.name)
         expect(page).to have_content(@animal1.age)
@@ -20,6 +20,15 @@ describe 'Animal Index Page' do
         expect(page).to have_content(@animal2.name)
         expect(page).to have_content(@animal2.age)
         expect(page).to have_content(@animal2.rescue)
+      end
+    end
+
+    describe 'update animal' do
+      it 'link to update each animal' do
+        within "#animal-#{@animal1.id}" do
+          click_link "edit"
+          expect(current_path).to eq("/animals/#{@animal1.id}/edit")
+        end
       end
     end
   end
