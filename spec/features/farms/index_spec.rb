@@ -4,6 +4,7 @@ describe 'Farm Index Page' do
   before do
     @farm1 = Farm.create!(name: "Tegriddy Farms", acreage: 100, family_owned: true)
     @farm2 = Farm.create!(name: "J Mart Farms", acreage: 150, family_owned: true)
+    @farm3 = Farm.create!(name: "Blah blah farms", acreage: 150, family_owned: true)
     visit '/farms'
   end
 
@@ -42,6 +43,17 @@ describe 'Farm Index Page' do
           click_link "edit"
           expect(current_path).to eq("/farms/#{@farm1.id}/edit")
         end
+      end
+    end
+
+    describe 'destroy farm' do
+      it 'link to delete next to each name' do
+        within "#farm-#{@farm3.id}" do
+          click_link "Delete #{@farm3.name}"
+        end
+
+        expect(current_path).to eq("/farms")
+        expect(page).to_not have_content(@farm3.name)
       end
     end
   end
