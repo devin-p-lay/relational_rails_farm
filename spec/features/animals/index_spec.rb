@@ -24,6 +24,8 @@ describe 'Animal Index Page' do
       end
     end
 
+    #test for only seeing the true boolean values dissapeard during git workflow 
+
     describe 'update animal' do
       it 'link to update each animal' do
         within "#animal-#{@animal1.id}" do
