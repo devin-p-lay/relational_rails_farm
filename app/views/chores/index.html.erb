@@ -6,5 +6,6 @@
     <p>Duration(in hours): <%= chore.duration %></p>
     <p>Daily chore: <%= chore.daily %></p>
     <p><%= link_to 'edit', "chores/#{chore.id}/edit" %></p>
+    <p><%= link_to "Delete #{chore.title}", "chores/#{chore.id}/destroy", method: :delete %></p>
   </div>
 <% end %>

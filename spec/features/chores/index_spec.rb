@@ -37,5 +37,16 @@ describe "Chores Index Page" do
         end
       end
     end
+
+    describe 'delete chore' do
+      it "link to delete each animal" do
+        within "#chore-#{@chore1.id}" do
+          click_link "Delete #{@chore1.title}"
+        end
+
+        expect(current_path).to eq("/chores")
+        expect(page).to_not have_content(@chore1.title)
+      end
+    end
   end
 end
