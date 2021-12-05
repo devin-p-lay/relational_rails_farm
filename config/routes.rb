@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   post '/farmers', to: 'farmers#create'
   get '/farmers/:id/edit', to: 'farmers#edit'
   patch '/farmers/:id', to: 'farmers#update'
+  delete '/farmers/:id/destroy', to: 'farmers#destroy'
 
   get '/animals', to: 'animals#index'
   get '/animals/:id', to:'animals#show'

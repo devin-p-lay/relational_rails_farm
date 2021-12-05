@@ -33,6 +33,12 @@ class FarmersController < ApplicationController
     end
   end
 
+  def destroy
+    farmer = Farmer.find(params[:id])
+    farmer.destroy
+    redirect_to "/farmers"
+  end
+
 
   private
 

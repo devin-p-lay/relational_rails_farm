@@ -4,3 +4,4 @@
 <h3>Number of chores: <%= @farmer.chores.count %></h3>
 <h3><%= link_to "#{@farmer.name} Chores", "/farmers/#{@farmer.id}/chores" %></h3>
 <h3><%= link_to "Update #{@farmer.name}", "/farmers/#{@farmer.id}/edit" %></h3>
+<h3><%= link_to "Delete #{@farmer.name}", "/farmers/#{@farmer.id}/destroy", method: :delete %></h3>
