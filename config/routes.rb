@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get '/farms', to: 'farms#index'
+  get '/farms/new', to: 'farms#new'
   get '/farms/:id', to: 'farms#show'
+  post '/farms', to: 'farms#create'
 
   get '/farmers', to: 'farmers#index'
+  get '/farmers/new', to: 'farmers#new'
   get '/farmers/:id', to: 'farmers#show'
+  post '/farmers', to: 'farmers#create'
 
   get '/animals', to: 'animals#index'
   get 'animals/:id', to:'animals#show'

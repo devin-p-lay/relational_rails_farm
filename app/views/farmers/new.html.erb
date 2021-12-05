@@ -1,0 +1,13 @@
+<h1>New Farmer</h1>
+<%= form_with url: '/farmers', method: :post, local: true do |f| %>
+  <%= f.label :name, "Name" %>
+  <%= f.text_field :name %>
+
+  <%= f.label :age, "Age" %>
+  <%= f.text_field :age %>
+
+  <%= f.label :full_time, "Full Time" %>
+  <%= f.text_field :full_time %>
+
+  <%= f.submit 'Submit' %>
+<% end %>
