@@ -23,8 +23,10 @@ describe "Chores Index Page" do
       end
     end
 
-    it "I only see the daily chores" do
+    xit "I only see the daily chores" do
       expect(page).to_not have_content(@chore3.title)
+
+      #i took out chore3 from before each
     end
   end
 end
