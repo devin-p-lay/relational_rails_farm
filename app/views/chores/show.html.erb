@@ -1,3 +1,4 @@
 <h1><%= @chore.title %></h1>
 <h3>Duration(in hours): <%= @chore.duration %></h3>
 <h3>Daily chore: <%= @chore.daily %></h3>
+<h2><%= link_to "Update Chore", "/chores/#{@chore.id}/edit" %></h2>

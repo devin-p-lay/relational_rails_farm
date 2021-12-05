@@ -13,5 +13,12 @@ describe "Chores Show Page" do
       expect(page).to have_content(@chore1.duration)
       expect(page).to have_content(@chore1.daily)
     end
+
+    describe 'i see a link to update that chore' do
+      it "when i click on that link, i am taken to a chore update page" do
+        click_link "Update Chore"
+        expect(current_path).to eq("/chores/#{@chore1.id}/edit")
+      end
+    end
   end
 end
