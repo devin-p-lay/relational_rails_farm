@@ -1,6 +1,6 @@
 class AnimalsController < ApplicationController
   def index
-    @animals = Animal.all
+    @animals = Animal.rescue_filter
   end
 
   def show

@@ -4,4 +4,8 @@ class Animal < ApplicationRecord
   validates_presence_of :name
   validates_presence_of :age
   validates_presence_of :rescue
+
+  def self.rescue_filter
+    where(rescue: true)
+  end 
 end
