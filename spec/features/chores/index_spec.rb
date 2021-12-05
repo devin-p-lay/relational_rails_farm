@@ -28,5 +28,14 @@ describe "Chores Index Page" do
 
       #i took out chore3 from before each
     end
+
+    describe 'update chore' do
+      it "link to update each chore" do
+        within "#chore-#{@chore1.id}" do
+          click_link "edit"
+          expect(current_path).to eq("/chores/#{@chore1.id}/edit")
+        end
+      end
+    end
   end
 end

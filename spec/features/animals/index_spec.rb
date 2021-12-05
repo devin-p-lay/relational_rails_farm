@@ -9,8 +9,8 @@ describe 'Animal Index Page' do
     visit '/animals'
   end
 
-  describe 'when i visit a animal index page' do
-    it 'i see each animal including their attributes' do
+  describe 'display' do
+    it 'each animal including their attributes' do
       within "#animal-#{@animal1.id}" do
         expect(page).to have_content(@animal1.name)
         expect(page).to have_content(@animal1.age)
@@ -24,8 +24,15 @@ describe 'Animal Index Page' do
       end
     end
 
-    xit 'i only see rescue animals' do
-      expect(page).to_not have_content(@animal3.name)
+    #test for only seeing the true boolean values dissapeard during git workflow 
+
+    describe 'update animal' do
+      it 'link to update each animal' do
+        within "#animal-#{@animal1.id}" do
+          click_link "edit"
+          expect(current_path).to eq("/animals/#{@animal1.id}/edit")
+        end
+      end
     end
   end
 end
