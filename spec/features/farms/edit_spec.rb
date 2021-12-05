@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'Farm Edit Page' do
   before do
-    @farm2 = Farm.create!(name: "J Mart Farms", acreage: 150, family_owned: true)
+    @farm2 = Farm.create!(name: "Pepperidge Farms", acreage: 150, family_owned: true)
     visit "/farms/#{@farm2.id}/edit"
   end
 

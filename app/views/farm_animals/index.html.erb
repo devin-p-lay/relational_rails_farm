@@ -9,3 +9,10 @@
 <% end %>
 <%= link_to "Create New Animal", "/farms/#{@farm.id}/animals/new" %>
 <%= link_to "Sort Alphabetically", "/farms/#{@farm.id}/animals?sort=asc" %>
+
+<%= form_with url: "/farms/#{@farm.id}/animals", method: :get, local: true do |f| %>
+  <%= f.label :age, 'Show only animals where age is greater than: ' %>
+  <%= f.text_field :age %>
+
+  <%= f.submit 'Apply' %>
+<% end %>

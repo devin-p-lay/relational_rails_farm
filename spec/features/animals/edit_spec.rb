@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'Animal Edit Page' do
   before do
     @farm1 = Farm.create!(name: "Tegriddy Farms", acreage: 100, family_owned: true)
-    @animal2 = Animal.create!(name: "Carly Cow", age: 4, rescue: true, farm_id: @farm1.id)
+    @animal2 = Animal.create!(name: "Carly Cow", age: 5, rescue: true, farm_id: @farm1.id)
     visit "/animals/#{@animal2.id}/edit"
   end
 

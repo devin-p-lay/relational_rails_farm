@@ -11,4 +11,8 @@ class Farm < ApplicationRecord
   def alphamal
     animals.order(:name)
   end
+
+  def age_filter(age)
+    animals.where("age > ?", age)
+  end 
 end

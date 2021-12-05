@@ -3,6 +3,8 @@ class FarmAnimalsController < ApplicationController
     @farm = Farm.find(params[:id])
     if params[:sort]
       @animals = @farm.alphamal
+    elsif params[:age]
+      @animals = @farm.age_filter(params[:age])
     else
       @animals = @farm.animals
     end

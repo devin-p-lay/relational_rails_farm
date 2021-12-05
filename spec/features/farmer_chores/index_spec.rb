@@ -3,9 +3,9 @@ require 'rails_helper'
 describe "Farmer Chores Index Page " do
   before do
     @farmer1 = Farmer.create!(name: "Randy Marsh", age: 45, full_time: true)
-    @chore1  = Chore.create!(title: "Milking Cows", duration: 2, daily: true, farmer_id: @farmer1.id)
+    @chore1  = Chore.create!(title: "Milking Cows", duration: 4, daily: true, farmer_id: @farmer1.id)
     @chore2  = Chore.create!(title: "Mowing", duration: 3, daily: true, farmer_id: @farmer1.id)
-    @chore3  = Chore.create!(title: "Apple Picking", duration: 3, daily: true, farmer_id: @farmer1.id)
+    @chore3  = Chore.create!(title: "Feeding Chickens", duration: 2, daily: true, farmer_id: @farmer1.id)
 
     visit "/farmers/#{@farmer1.id}/chores"
   end

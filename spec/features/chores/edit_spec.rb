@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'Chore Edit Page' do
   before do
     @farmer1 = Farmer.create!(name: "Randy Marsh", age: 45, full_time: true)
-    @chore1  = Chore.create!(title: "Milking Cows", duration: 2, daily: true, farmer_id: @farmer1.id)
+    @chore1  = Chore.create!(title: "Milking Cows", duration: 4, daily: true, farmer_id: @farmer1.id)
     visit "/chores/#{@chore1.id}/edit"
   end
 
