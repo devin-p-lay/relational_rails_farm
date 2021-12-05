@@ -6,5 +6,6 @@
     <p>Age: <%= animal.age %> </p>
     <p>Rescue: <%= animal.rescue %> </p>
     <p><%= link_to 'edit', "animals/#{animal.id}/edit" %></p>
+    <p><%= link_to "Delete #{animal.name}", "animals/#{animal.id}/destroy", method: :delete %></p>
   </div>
 <% end %>
