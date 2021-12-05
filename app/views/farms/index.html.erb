@@ -4,6 +4,7 @@
   <div id="farm-<%= farm.id %>">
     <p><%= farm.name %> - created at: <%= farm.created_at %>
       <p><%= link_to 'edit', "/farms/#{farm.id}/edit" %></p>
+      <p><%= link_to "Delete #{farm.name}", "/farms/#{farm.id}/destroy", method: :delete, data: { confirm: "Are you sure?" } %></p>
   </div>
 <% end %>
 

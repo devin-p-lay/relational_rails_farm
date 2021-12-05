@@ -42,5 +42,16 @@ describe 'Farmer Index Page' do
         end
       end
     end
+
+    describe 'destroy farmer' do
+      it "link to delete next to each name" do
+        within "#farmer-#{@farmer1.id}" do
+          click_link "Delete #{@farmer1.name}"
+        end
+
+        expect(current_path).to eq("/farmers")
+        expect(page).to_not have_content(@farmer1.name)
+      end
+    end
   end
 end
