@@ -2,3 +2,4 @@
 <h3>Age: <%= @animal.age %></h3>
 <h3>Rescue: <%= @animal.rescue %></h3>
 <h2><%= link_to "Update Animal", "/animals/#{@animal.id}/edit" %></h2>
+<h2><%= link_to "Delete #{@animal.name}", "/animals/#{@animal.id}/destroy", method: :delete %></h2>

@@ -20,5 +20,14 @@ describe "Chores Show Page" do
         expect(current_path).to eq("/chores/#{@chore1.id}/edit")
       end
     end
+
+    describe 'destroy chore' do
+      it "has a link to delete each chore" do
+        click_link "Delete #{@chore1.title}"
+
+        expect(current_path).to eq("/chores")
+        expect(page).to_not have_content(@chore1.title)
+      end
+    end
   end
 end
