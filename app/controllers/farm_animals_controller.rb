@@ -1,6 +1,11 @@
 class FarmAnimalsController < ApplicationController
   def index
     @farm = Farm.find(params[:id])
+    if params[:sort]
+      @animals = @farm.alphamal
+    else
+      @animals = @farm.animals
+    end
   end
 
   def new
