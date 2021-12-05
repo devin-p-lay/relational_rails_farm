@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Animal do
+describe Animal do
   describe 'relations' do
     it { should belong_to :farm }
   end
@@ -12,10 +12,10 @@ RSpec.describe Animal do
 
   describe 'model methods' do
     before do
-      @farm1 = Farm.create!(name: "Tegriddy Farms", acreage: 100, family_owned: true)
-      @animal1 = Animal.create!(name: "Pepper Pig", age: 3, rescue: true, farm_id: @farm1.id)
-      @animal2 = Animal.create!(name: "Carly Cow", age: 5, rescue: true, farm_id: @farm1.id)
-      @animal3 = Animal.create!(name: "Harriet the Horse", age: 7, rescue: false, farm_id: @farm1.id)
+      @farm1 = Farm.create!(name: "Blue Bell Farms", acreage: 100, family_owned: true)
+      @animal1 = Animal.create!(name: "Peppa the Pig", age: 3, rescue: true, farm_id: @farm1.id)
+      @animal2 = Animal.create!(name: "Carly the Cow", age: 5, rescue: true, farm_id: @farm1.id)
+      @animal3 = Animal.create!(name: "David the Dog", age: 7, rescue: false, farm_id: @farm1.id)
     end
 
     describe '::class_methods' do
