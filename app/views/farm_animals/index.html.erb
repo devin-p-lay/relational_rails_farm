@@ -1,10 +1,11 @@
 <h1><%= @farm.name %> - Animals</h1>
+<hr>
 <% @farm.animals.each do |animal| %>
   <div id="animal-<%= animal.id %>">
-    <h3>Animals: </h3>
-    <p>Name: <%= animal.name %></p>
+    <h3><%= animal.name %></h3>
     <p>Age: <%= animal.age %></p>
     <p>Rescue: <%= animal.rescue %></p>
+    <hr>
   </div>
 <% end %>
 <%= link_to "Create New Animal", "/farms/#{@farm.id}/animals/new" %>
