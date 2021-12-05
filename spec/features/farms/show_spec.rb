@@ -25,5 +25,11 @@ describe 'Farm Show Page' do
       click_link "Update #{@farm1.name}"
       expect(current_path).to eq("/farms/#{@farm1.id}/edit")
     end
+
+    it 'i see a link to delete that farm' do
+      click_link "Delete #{@farm1.name}"
+      expect(current_path).to eq("/farms")
+      expect(page).to_not have_content(@farm1.name)
+    end 
   end
 end
