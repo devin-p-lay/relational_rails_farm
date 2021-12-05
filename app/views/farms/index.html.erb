@@ -1,11 +1,14 @@
 <h1>Farms</h1>
+<hr>
+<%= link_to "Create New Farm", '/farms/new' %>
+<hr>
 
 <% @farms.each do |farm| %>
   <div id="farm-<%= farm.id %>">
-    <p><%= farm.name %> - created at: <%= farm.created_at %>
-      <p><%= link_to 'edit', "/farms/#{farm.id}/edit" %></p>
-      <p><%= link_to "Delete #{farm.name}", "/farms/#{farm.id}/destroy", method: :delete, data: { confirm: "Are you sure?" } %></p>
+    <h2><%= farm.name %></h2>
+      <p>created at: <%= farm.created_at %></p>
+      <p><%= link_to 'edit', "/farms/#{farm.id}/edit" %> | <%= link_to 'delete', "/farms/#{farm.id}/destroy", method: :delete, data: { confirm: "Are you sure?" } %></p>
+      <hr>
   </div>
 <% end %>
 
-<%= link_to "Create New Farm", '/farms/new' %>

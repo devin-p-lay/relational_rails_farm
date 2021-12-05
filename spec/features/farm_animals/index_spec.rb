@@ -41,7 +41,7 @@ describe "Farm Animals Index Page" do
     end
 
     describe 'Display records over a given threshold' do
-      it 'i see a form that allows me to input a number value' do
+      xit 'i see a form that allows me to input a number value' do
         fill_in :age, with: '5'
         click_button 'Apply'
 

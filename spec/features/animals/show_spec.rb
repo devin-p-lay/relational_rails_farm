@@ -16,14 +16,14 @@ describe 'Animal Show Page'do
 
     describe 'i see a link to update that animal' do
       it 'when i click on that link, i am taken to animal update page' do
-        click_link "Update Animal"
+        click_link "edit"
         expect(current_path).to eq("/animals/#{@animal1.id}/edit")
       end
     end
 
     describe 'destroy animal' do
       it 'has a link to delete each animal' do
-        click_link "Delete #{@animal1.name}"
+        click_link "delete"
 
         expect(current_path).to eq("/animals")
         expect(page).to_not have_content(@animal1.name)

@@ -38,12 +38,12 @@ describe 'Animal Index Page' do
     describe 'delete animal' do
       it 'link to delete each animal' do
         within "#animal-#{@animal1.id}" do
-          click_link "Delete #{@animal1.name}"
+          click_link "delete"
         end
 
         expect(current_path).to eq("/animals")
         expect(page).to_not have_content(@animal1.name)
       end
-    end 
+    end
   end
 end
