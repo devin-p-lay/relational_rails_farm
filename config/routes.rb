@@ -26,6 +26,8 @@ Rails.application.routes.draw do
   get '/chores/:id', to: 'chores#show'
   get '/chores/:id/edit', to:'chores#edit'
   patch '/chores/:id', to: 'chores#update'
+  delete '/chores/:id/destroy', to: 'chores#destroy'
+
 
   get '/farms/:id/animals', to: 'farm_animals#index'
   get '/farms/:id/animals/new', to: 'farm_animals#new'
