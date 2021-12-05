@@ -4,7 +4,7 @@ describe "Chores Index Page" do
   before do
     @farmer1 = Farmer.create!(name: "Randy Marsh", age: 45, full_time: true)
     @chore1  = Chore.create!(title: "Milking Cows", duration: 2, daily: true, farmer_id: @farmer1.id)
-    @chore2  = Chore.create!(title: "Mowing", duration: 3, daily: true, farmer_id: @farmer1.id)
+    @chore2  = Chore.create!(title: "Mowing", duration: 3, daily: false, farmer_id: @farmer1.id)
     visit '/chores'
   end
 
@@ -21,7 +21,10 @@ describe "Chores Index Page" do
         expect(page).to have_content(@chore2.duration)
         expect(page).to have_content(@chore2.daily)
       end
+    end
 
+    it "I only see the daily chores" do
+      expect(page).to_not have_content(@chore3.title)
     end
   end
 end
