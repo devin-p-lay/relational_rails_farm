@@ -14,9 +14,9 @@ describe Farm do
     before do
       @farm1 = Farm.create!(name: "Blue Bell Farms", acreage: 100, family_owned: true)
       @farm2 = Farm.create!(name: "Lake Hill Farms", acreage: 150, family_owned: true)
-      @animal1 = Animal.create!(name: "Peppa the Pig", age: 3, rescue: true, farm_id: @farm1.id)
-      @animal2 = Animal.create!(name: "Carly the Cow", age: 5, rescue: true, farm_id: @farm1.id)
-      @animal3 = Animal.create!(name: "David the Dog", age: 7, rescue: true, farm_id: @farm1.id)
+      @animal1 = @farm1.animals.create!(name: "Peppa the Pig", age: 3, rescue: true)
+      @animal2 = @farm1.animals.create!(name: "Carly the Cow", age: 5, rescue: true)
+      @animal3 = @farm1.animals.create!(name: "David the Dog", age: 7, rescue: false)
     end
 
     describe 'AR method' do

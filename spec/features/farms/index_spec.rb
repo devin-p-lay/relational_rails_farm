@@ -2,9 +2,9 @@ require 'rails_helper'
 
 describe 'Farm Index Page' do
   before do
-    @farm1 = Farm.create!(name: "Tegriddy Farms", acreage: 100, family_owned: true)
-    @farm2 = Farm.create!(name: "Pepperidge Farms", acreage: 150, family_owned: true)
-    @farm3 = Farm.create!(name: "Ol' MacDonald Farms", acreage: 150, family_owned: true)
+    @farm1 = Farm.create!(name: "Blue Bell Farms", acreage: 100, family_owned: true)
+    @farm2 = Farm.create!(name: "Lake Hill Farms", acreage: 150, family_owned: true)
+    @farm3 = Farm.create!(name: "Full Moon Farms", acreage: 200, family_owned: false)
     visit '/farms'
   end
 

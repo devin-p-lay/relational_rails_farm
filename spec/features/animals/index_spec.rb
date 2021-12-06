@@ -2,10 +2,10 @@ require 'rails_helper'
 
 describe 'Animal Index Page' do
   before do
-    @farm1 = Farm.create!(name: "Tegriddy Farms", acreage: 100, family_owned: true)
-    @animal1 = Animal.create!(name: "Pepper Pig", age: 3, rescue: true, farm_id: @farm1.id)
-    @animal2 = Animal.create!(name: "Carly Cow", age: 5, rescue: true, farm_id: @farm1.id)
-    @animal3 = Animal.create!(name: "Harriet the Horse", age: 7, rescue: false, farm_id: @farm1.id)
+    @farm1 = Farm.create!(name: "Blue Bell Farms", acreage: 100, family_owned: true)
+    @animal1 = @farm1.animals.create!(name: "Peppa the Pig", age: 3, rescue: true)
+    @animal2 = @farm1.animals.create!(name: "Carly the Cow", age: 5, rescue: true)
+    @animal3 = @farm1.animals.create!(name: "David the Dog", age: 7, rescue: false)
     visit '/animals'
   end
 
@@ -24,7 +24,7 @@ describe 'Animal Index Page' do
       end
     end
 
-    it "I only see the rescue animals" do
+    it "only rescue animals" do
       expect(page).to_not have_content(@animal3.name)
     end
 
