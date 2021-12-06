@@ -33,6 +33,12 @@ describe Farm do
             expect(Farm.age_filter(5)).to eq([@animal3])
           end
         end
+
+        describe '::most_animals' do
+          it 'can sort farms by most animals' do
+            expect(Farm.most_animals).to eq([@farm1, @farm2])
+          end
+        end
       end
 
       describe '#instance_methods' do

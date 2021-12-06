@@ -15,4 +15,11 @@ class Farm < ApplicationRecord
   def self.age_filter(age)
     Animal.where("age > ?", age)
   end
+
+  def self.most_animals
+    farm = Farm.all.sort do |farm|
+      farm.animal_count
+    end
+    farm.reverse 
+  end
 end

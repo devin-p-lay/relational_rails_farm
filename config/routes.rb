@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get '/farms', to: 'farms#index'
   get '/farms/new', to: 'farms#new'
   get '/farms/:id', to: 'farms#show'
@@ -27,7 +26,6 @@ Rails.application.routes.draw do
   get '/chores/:id/edit', to:'chores#edit'
   patch '/chores/:id', to: 'chores#update'
   delete '/chores/:id/destroy', to: 'chores#destroy'
-
 
   get '/farms/:id/animals', to: 'farm_animals#index'
   get '/farms/:id/animals/new', to: 'farm_animals#new'

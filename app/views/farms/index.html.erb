@@ -1,6 +1,6 @@
 <h1>Farms</h1>
 <hr>
-<%= link_to "Create New Farm", '/farms/new' %>
+<%= link_to "Create New Farm", '/farms/new' %> | <%= link_to "Sort by Animal Quantity", '/farms?sort=asc' %>
 <hr>
 
 <% @farms.each do |farm| %>
