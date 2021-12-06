@@ -2,10 +2,10 @@ require 'rails_helper'
 
 describe "Chores Index Page" do
   before do
-    @farmer1 = Farmer.create!(name: "Randy Marsh", age: 45, full_time: true)
-    @chore1  = Chore.create!(title: "Apple Picking", duration: 4, daily: true, farmer_id: @farmer1.id)
-    @chore2  = Chore.create!(title: "Mowing", duration: 3, daily: false, farmer_id: @farmer1.id)
-    @chore3  = Chore.create!(title: "Feeding Chickens", duration: 2, daily: true, farmer_id: @farmer1.id)
+    @farmer1 = Farmer.create!(name: "Paul Leonard", age: 28, full_time: true)
+    @chore1  = Chore.create!(title: "Feed Chickens", duration: 4, daily: true, farmer_id: @farmer1.id)
+    @chore2  = Chore.create!(title: "Apple Picking", duration: 2, daily: true, farmer_id: @farmer1.id)
+    @chore3  = Chore.create!(title: "Mowing Fields", duration: 6, daily: false, farmer_id: @farmer1.id)
     visit '/chores'
   end
 
@@ -17,15 +17,15 @@ describe "Chores Index Page" do
         expect(page).to have_content(@chore1.daily)
       end
 
-      within "#chore-#{@chore3.id}" do
-        expect(page).to have_content(@chore3.title)
-        expect(page).to have_content(@chore3.duration)
-        expect(page).to have_content(@chore3.daily)
+      within "#chore-#{@chore2.id}" do
+        expect(page).to have_content(@chore2.title)
+        expect(page).to have_content(@chore2.duration)
+        expect(page).to have_content(@chore2.daily)
       end
     end
 
     it "I only see the daily chores" do
-      expect(page).to_not have_content(@chore2.title)
+      expect(page).to_not have_content(@chore3.title)
     end
 
     describe 'update chore' do

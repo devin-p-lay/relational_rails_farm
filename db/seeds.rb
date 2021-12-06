@@ -2,16 +2,16 @@ Animal.destroy_all
 Farm.destroy_all
 Chore.destroy_all
 Farmer.destroy_all
-@farm1 = Farm.create!(name: "Tegriddy Farms", acreage: 100, family_owned: true)
-@farm2 = Farm.create!(name: "Pepperidge Farms", acreage: 150, family_owned: true)
-@farm3 = Farm.create!(name: "Ol' MacDonald Farms", acreage: 150, family_owned: true)
+@farm1 = Farm.create!(name: "Blue Bell Farms", acreage: 100, family_owned: true)
+@farm2 = Farm.create!(name: "Lake Hill Farms", acreage: 150, family_owned: true)
 
 @farmer1 = Farmer.create!(name: "Randy Marsh", age: 45, full_time: true)
 @farmer2 = Farmer.create!(name: "Mr. Garrison", age: 50, full_time: true)
 
-@animal1 = Animal.create!(name: "Pepper Pig", age: 3, rescue: true, farm_id: @farm1.id)
-@animal2 = Animal.create!(name: "Carly Cow", age: 5, rescue: true, farm_id: @farm1.id)
-@animal3 = Animal.create!(name: "Harriet the Horse", age: 7, rescue: true, farm_id: @farm1.id)
+
+@animal1 = @farm1.animals.create!(name: "Peppa the Pig", age: 3, rescue: true)
+@animal2 = @farm1.animals.create!(name: "Carly the Cow", age: 5, rescue: true)
+@animal3 = @farm1.animals.create!(name: "David the Dog", age: 7, rescue: false)
 @animal4 = Animal.create!(name: "Charles the Chicken", age: 6, rescue: true, farm_id: @farm1.id)
 @animal5 = Animal.create!(name: "Daisy the Dog", age: 13, rescue: true, farm_id: @farm1.id)
 

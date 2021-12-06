@@ -2,15 +2,15 @@ require 'rails_helper'
 
 describe "Farm Animals Index Page" do
   before do
-    @farm1 = Farm.create!(name: "Tegriddy Farms", acreage: 100, family_owned: true)
-    @animal1 = Animal.create!(name: "Pepper Pig", age: 3, rescue: true, farm_id: @farm1.id)
-    @animal2 = Animal.create!(name: "Carly Cow", age: 5, rescue: true, farm_id: @farm1.id)
-    @animal3 = Animal.create!(name: "Harriet the Horse", age: 7, rescue: true, farm_id: @farm1.id)
+    @farm1 = Farm.create!(name: "Blue Bell Farms", acreage: 100, family_owned: true)
+    @animal1 = @farm1.animals.create!(name: "Peppa the Pig", age: 3, rescue: true)
+    @animal2 = @farm1.animals.create!(name: "Carly the Cow", age: 5, rescue: true)
+    @animal3 = @farm1.animals.create!(name: "David the Dog", age: 7, rescue: false)
     visit "farms/#{@farm1.id}/animals"
   end
 
-  describe "When I visit the Farm's Animals Index page" do
-    it "I see all of the animals from that farm and their attributes" do
+  describe "display" do
+    it "animals and their attributes" do
       within "#animal-#{@animal1.id}" do
         expect(page).to have_content(@animal1.name)
         expect(page).to have_content(@animal1.age)

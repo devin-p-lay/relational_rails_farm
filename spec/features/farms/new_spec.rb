@@ -2,8 +2,8 @@ require 'rails_helper'
 
 describe 'Farm New Page' do
   before do
-    @farm1 = Farm.create!(name: "Tegriddy Farms", acreage: 100, family_owned: true)
-    @farm2 = Farm.create!(name: "Pepperidge Farms", acreage: 150, family_owned: true)
+    @farm1 = Farm.create!(name: "Blue Bell Farms", acreage: 100, family_owned: true)
+    @farm2 = Farm.create!(name: "Lake Hill Farms", acreage: 150, family_owned: true)
     visit '/farms/new'
   end
 

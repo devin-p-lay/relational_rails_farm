@@ -12,30 +12,33 @@ describe Farmer do
 
   describe 'model methods' do
     before do
-      @farmer1 = Farmer.create!(name: "Randy Marsh", age: 45, full_time: true)
-      @farmer2 = Farmer.create!(name: "Mr. Garrison", age: 50, full_time: true)
-      @chore1  = Chore.create!(title: "Apple Picking", duration: 4, daily: true, farmer_id: @farmer1.id)
-      @chore2  = Chore.create!(title: "Mowing", duration: 3, daily: false, farmer_id: @farmer1.id)
-      @chore3  = Chore.create!(title: "Feeding Chickens", duration: 2, daily: true, farmer_id: @farmer1.id)
+      @farmer1 = Farmer.create!(name: "Paul Leonard", age: 28, full_time: true)
+      @farmer2 = Farmer.create!(name: "Farmer Devin", age: 35, full_time: true)
+      @chore1  = @farmer1.chores.create!(title: "Feed Chickens", duration: 4, daily: true)
+      @chore2  = @farmer1.chores.create!(title: "Apple Picking", duration: 2, daily: true)
+      @chore3  = @farmer1.chores.create!(title: "Mowing Fields", duration: 6, daily: false)
     end
 
     describe '::class_methods' do
+
       describe '::duration_filter' do
         it 'shows only chores above specified duration length' do
-          expect(@farmer1.duration_filter(3)).to_not include(@chore3)
+          expect(@farmer1.duration_filter(3)).to_not include([@chore1, @chore2])
         end
       end
     end
 
     describe '#instance_methods' do
+
       describe '#chore_count' do
         it 'counts chores' do
           expect(@farmer1.chore_count).to eq(3)
         end
       end
+
       describe '#chore_order' do
         it 'sorts alphabetically' do
-          expect(@farmer1.chore_order).to eq([@chore1, @chore3, @chore2])
+          expect(@farmer1.chore_order).to eq([@chore2, @chore1, @chore3])
         end
       end
     end

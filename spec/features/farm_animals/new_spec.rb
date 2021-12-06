@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'Farm Animals New Page' do
   before do
-    @farm1 = Farm.create!(name: "Tegriddy Farms", acreage: 100, family_owned: true)
+    @farm1 = Farm.create!(name: "Blue Bell Farms", acreage: 100, family_owned: true)
     visit "/farms/#{@farm1.id}/animals/new"
   end
 
