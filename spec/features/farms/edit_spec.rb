@@ -10,8 +10,8 @@ describe 'Farm Edit Page' do
     it 'i fill out form, click submit and taken to farm show, where i see updated info' do
       fill_in "Name", with: "Ol' MacDonald's"
       fill_in "Acreage", with: "240"
-      fill_in "Family-Owned", with: "yes"
-      click_button "Submit"
+      fill_in :family_owned, with: "yes"
+      click_button "Update Farm"
 
       expect(current_path).to eq("/farms/#{@farm2.id}")
       expect(page).to have_content("Ol' MacDonald's")

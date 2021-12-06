@@ -11,8 +11,8 @@ describe 'Farm New Page' do
     it 'i fill out form, click submit, i am taken back to the farm index where i see new farm' do
       fill_in 'Name', with: 'Pepperidge Farms'
       fill_in 'Acreage', with: '200'
-      fill_in 'family_owned', with: 'true'
-      click_button 'Submit'
+      fill_in :family_owned, with: 'true'
+      click_button 'Create Farm'
 
       expect(current_path).to eq('/farms')
       expect(Farm.count).to eq(3)

@@ -11,8 +11,8 @@ describe 'Farmer New Page' do
     it "I fill out form, click sumbmit, i am taken back to farmer index and see new farm" do
       fill_in 'Name', with: 'Ol MacDonald'
       fill_in 'Age', with: 250
-      fill_in 'Full Time', with: 'no'
-      click_button 'Submit'
+      fill_in :full_time, with: 'no'
+      click_button 'Create Farmer'
 
       expect(current_path).to eq('/farmers')
       expect(Farmer.count).to eq 3
