@@ -11,7 +11,7 @@ Farmer.destroy_all
 
 @farmer1 = Farmer.create!(name: "Paul Leonard", age: 28, full_time: true)
 @farmer2 = Farmer.create!(name: "Farmer Devin", age: 35, full_time: true)
-@farmer2 = Farmer.create!(name: "Ol MacDonald", age: 99, full_time: true)
+@farmer3 = Farmer.create!(name: "Ol MacDonald", age: 99, full_time: true)
 
 @animal1  = @farm1.animals.create!(name: "Peppa the Pig", age: 3, rescue: true)
 @animal2  = @farm1.animals.create!(name: "Carly the Cow", age: 5, rescue: true)
