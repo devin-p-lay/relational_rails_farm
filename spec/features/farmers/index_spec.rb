@@ -59,7 +59,7 @@ describe 'Farmer Index Page' do
     describe 'destroy farmer' do
       it "link to delete next to each name" do
         within "#farmer-#{@farmer1.id}" do
-          click_link "Delete #{@farmer1.name}"
+          click_link "delete"
         end
 
         expect(current_path).to eq("/farmers")
