@@ -1,5 +1,4 @@
 <h1><%= @chore.title %></h1>
 <h3>Duration(in hours): <%= @chore.duration %></h3>
 <h3>Daily chore: <%= @chore.daily %></h3>
-<h2><%= link_to "Update Chore", "/chores/#{@chore.id}/edit" %></h2>
-<h2><%= link_to "Delete #{@chore.title}", "/chores/#{@chore.id}/destroy", method: :delete %></h2>
+<p><%= link_to "edit", "/chores/#{@chore.id}/edit" %> | <%= link_to "delete", "/chores/#{@chore.id}/destroy", method: :delete %></p>

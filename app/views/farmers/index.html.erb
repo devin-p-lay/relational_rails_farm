@@ -6,7 +6,7 @@
 <% @farmers.each do |farmer| %>
 <div id="farmer-<%= farmer.id %>">
   <p><%= farmer.name %> - created at: <%= farmer.created_at %>
-    <p><%= link_to 'edit', "/farmers/#{farmer.id}/edit" %> | <%= link_to "Delete #{farmer.name}", "/farmers/#{farmer.id}/destroy", method: :delete, data: { confirm: "Are you sure?" } %></p>
+    <p><%= link_to 'edit', "/farmers/#{farmer.id}/edit" %> | <%= link_to "delete", "/farmers/#{farmer.id}/destroy", method: :delete, data: { confirm: "Are you sure?" } %></p>
     <hr>
 </div>
 <% end %>
