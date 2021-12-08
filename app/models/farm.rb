@@ -20,6 +20,10 @@ class Farm < ApplicationRecord
     farm = Farm.all.sort do |farm|
       farm.animal_count
     end
-    farm.reverse 
+    farm.reverse
+  end
+
+  def self.search_farm(search)
+    where('name ILIKE ?', "%#{search}%")
   end
 end

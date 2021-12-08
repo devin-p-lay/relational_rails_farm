@@ -16,6 +16,10 @@ class Farmer < ApplicationRecord
     chores.where("duration > ?", duration)
   end
 
+  def self.exact_search(search)
+    where('name LIKE ?', "%#{search}%")
+  end
+
   def self.most_chores
     farmer = Farmer.all.sort do |farmer|
       farmer.chore_count

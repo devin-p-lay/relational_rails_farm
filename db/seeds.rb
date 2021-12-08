@@ -6,7 +6,7 @@ Farmer.destroy_all
 @farm1 = Farm.create!(name: "Blue Bell Farms", acreage: 100, family_owned: true)
 @farm2 = Farm.create!(name: "Lake Hill Farms", acreage: 150, family_owned: true)
 @farm3 = Farm.create!(name: "Full Moon Farms", acreage: 200, family_owned: false)
-@farm4 = Farm.create!(name: "Hard Rock Farms", acreage: 250, family_owned: true)
+@farm4 = Farm.create!(name: "Half Moon Farms", acreage: 250, family_owned: true)
 @farm5 = Farm.create!(name: "Slow Bend Farms", acreage: 300, family_owned: true)
 
 @farmer1 = Farmer.create!(name: "Paul Leonard", age: 28, full_time: true)

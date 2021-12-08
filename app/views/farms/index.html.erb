@@ -1,6 +1,12 @@
 <h1>Farms</h1>
 <hr>
 <%= link_to "Create New Farm", '/farms/new' %> | <%= link_to "Sort by Animal Quantity", '/farms?sort=asc' %>
+<%= form_with url: "/farms", method: :get, local: true do |f| %>
+  <%= f.label :search, 'Find' %>
+  <%= f.text_field :search %>
+
+  <%= f.submit 'search' %>
+<% end %>
 <hr>
 
 <% @farms.each do |farm| %>
