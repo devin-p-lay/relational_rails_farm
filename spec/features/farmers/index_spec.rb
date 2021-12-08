@@ -74,5 +74,13 @@ describe 'Farmer Index Page' do
         expect(@farmer2.name).to appear_before(@farmer3.name)
       end
     end
+
+    describe 'farmer name is a link' do
+      it "that goes to farmer_chores index" do
+        click_link "#{@farmer1.name}"
+
+        expect(current_path).to eq("/farmers/#{@farmer1.id}/chores")
+      end
+    end
   end
 end
