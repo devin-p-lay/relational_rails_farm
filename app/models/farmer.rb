@@ -15,4 +15,8 @@ class Farmer < ApplicationRecord
   def duration_filter(duration)
     chores.where("duration > ?", duration)
   end
+
+  def self.exact_search(search)
+    where('name LIKE ?', "%#{search}%")
+  end
 end

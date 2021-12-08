@@ -26,6 +26,12 @@ describe Farmer do
           expect(@farmer1.duration_filter(3)).to_not include([@chore1, @chore2])
         end
       end
+
+      describe '::exact_search' do
+        it 'returns record with exact match from the search' do
+          expect(Farmer.exact_search("Paul Leonard")).to eq([@farmer1])
+        end
+      end
     end
 
     describe '#instance_methods' do

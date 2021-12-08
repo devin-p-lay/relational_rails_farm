@@ -5,6 +5,7 @@ describe 'Farm Index Page' do
     @farm1 = Farm.create!(name: "Blue Bell Farms", acreage: 100, family_owned: true)
     @farm2 = Farm.create!(name: "Lake Hill Farms", acreage: 150, family_owned: true)
     @farm3 = Farm.create!(name: "Full Moon Farms", acreage: 200, family_owned: false)
+    @farm4 = Farm.create!(name: "Half Moon Farms", acreage: 250, family_owned: false)
     @animal1  = @farm1.animals.create!(name: "Peppa the Pig", age: 3, rescue: true)
     @animal2  = @farm1.animals.create!(name: "Carly the Cow", age: 5, rescue: true)
     @animal3  = @farm1.animals.create!(name: "David the Dog", age: 7, rescue: false)
@@ -73,6 +74,17 @@ describe 'Farm Index Page' do
         click_link "Sort by Animal Quantity"
         expect(@farm1.name).to appear_before(@farm2.name)
         expect(@farm2.name).to appear_before(@farm3.name)
+      end
+    end
+
+    describe 'search by name, partial match' do
+      it 'fill out form with case-insensitive partial match, click search, and return all records that are partial matched' do
+        fill_in :search, with: "oOn"
+        click_button 'search'
+        expect(page).to have_content(@farm3.name)
+        expect(page).to have_content(@farm4.name)
+        expect(page).to_not have_content(@farm1.name)
+        expect(page).to_not have_content(@farm2.name)
       end
     end
   end

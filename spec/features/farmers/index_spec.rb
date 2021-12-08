@@ -4,6 +4,7 @@ describe 'Farmer Index Page' do
   before do
     @farmer1 = Farmer.create!(name: "Paul Leonard", age: 28, full_time: true)
     @farmer2 = Farmer.create!(name: "Farmer Devin", age: 35, full_time: true)
+    @farmer3 = Farmer.create!(name: "Paul R. Leonard", age: 28, full_time: true)
     visit '/farmers'
   end
 
@@ -50,6 +51,16 @@ describe 'Farmer Index Page' do
 
         expect(current_path).to eq("/farmers")
         expect(page).to_not have_content(@farmer1.name)
+      end
+    end
+
+    describe 'search by name, exact match' do
+      it 'fill out form with exact match, click search, and it returns the record with exact match' do
+        fill_in :search, with: "Paul Leonard"
+        click_button 'search'
+        expect(page).to have_content(@farmer1.name)
+        expect(page).to_not have_content(@farmer2.name)
+        expect(page).to_not have_content(@farmer3.name)
       end
     end
   end

@@ -2,6 +2,8 @@ class FarmsController < ApplicationController
   def index
     if params[:sort]
       @farms = Farm.most_animals
+    elsif params[:search]
+      @farms = Farm.search_farm(params[:search])
     else
       @farms = Farm.order_by_most_recently_created
     end
