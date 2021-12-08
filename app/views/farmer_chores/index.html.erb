@@ -9,8 +9,8 @@
 <%= link_to "Create New Chore", "/farmers/#{@farmer.id}/chores/new" %>
 <%= link_to "Sort Alphabetically", "/farmers/#{@farmer.id}/chores/?sort=asc" %>
 <%= form_with url: "/farmers/#{@farmer.id}/chores", method: :get, local: true do |f| %>
-<%= f.label :duration, 'Show only chores where duration is greater than: ' %>
-<%= f.text_field :duration %>
+  <%= f.label :duration, 'Show only chores where duration is greater than: ' %>
+  <%= f.text_field :duration %>
 
-<%= f.submit 'Apply' %>
+  <%= f.submit 'Apply' %>
 <% end %>
