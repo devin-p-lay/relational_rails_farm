@@ -19,4 +19,11 @@ class Farmer < ApplicationRecord
   def self.exact_search(search)
     where('name LIKE ?', "%#{search}%")
   end
+
+  def self.most_chores
+    farmer = Farmer.all.sort do |farmer|
+      farmer.chore_count
+    end
+    farmer.reverse
+  end
 end

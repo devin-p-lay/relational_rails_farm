@@ -1,16 +1,19 @@
 <h1><%= @farmer.name %> - Chores</h1>
+<hr>
+<%= link_to "Create New Chore", "/farmers/#{@farmer.id}/chores/new" %>
+<%= link_to "Sort Alphabetically", "/farmers/#{@farmer.id}/chores/?sort=asc" %>
+<%= form_with url: "/farmers/#{@farmer.id}/chores", method: :get, local: true do |f| %>
+  <%= f.label :duration, 'Show only chores where duration is greater than: ' %>
+  <%= f.text_field :duration %>
+
+  <%= f.submit 'Apply' %>
+<% end %>
+<hr>
 <% @chores.each do |chore| %>
   <div id="chore-<%= chore.id %>">
     <h2><%= chore.title %></h2>
     <p>Duration: <%= chore.duration %> hour(s)</p>
     <p>Daily: <%= chore.daily %></p>
+    <hr>
   </div>
-<% end %>
-<%= link_to "Create New Chore", "/farmers/#{@farmer.id}/chores/new" %>
-<%= link_to "Sort Alphabetically", "/farmers/#{@farmer.id}/chores/?sort=asc" %>
-<%= form_with url: "/farmers/#{@farmer.id}/chores", method: :get, local: true do |f| %>
-<%= f.label :duration, 'Show only chores where duration is greater than: ' %>
-<%= f.text_field :duration %>
-
-<%= f.submit 'Apply' %>
 <% end %>

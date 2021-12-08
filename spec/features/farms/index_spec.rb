@@ -77,6 +77,7 @@ describe 'Farm Index Page' do
       end
     end
 
+
     describe 'search by name, partial match' do
       it 'fill out form with case-insensitive partial match, click search, and return all records that are partial matched' do
         fill_in :search, with: "oOn"
@@ -85,6 +86,13 @@ describe 'Farm Index Page' do
         expect(page).to have_content(@farm4.name)
         expect(page).to_not have_content(@farm1.name)
         expect(page).to_not have_content(@farm2.name)
+      end
+    end
+
+    describe "farm name is a link" do
+      it "link goes to farm_animals index" do
+        click_link "#{@farm1.name}"
+        expect(current_path).to eq("/farms/#{@farm1.id}/animals")
       end
     end
   end

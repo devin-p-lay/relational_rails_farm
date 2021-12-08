@@ -16,14 +16,14 @@ describe "Chores Show Page" do
 
     describe 'i see a link to update that chore' do
       it "when i click on that link, i am taken to a chore update page" do
-        click_link "Update Chore"
+        click_link "edit"
         expect(current_path).to eq("/chores/#{@chore1.id}/edit")
       end
     end
 
     describe 'destroy chore' do
       it "has a link to delete each chore" do
-        click_link "Delete #{@chore1.title}"
+        click_link "delete"
 
         expect(current_path).to eq("/chores")
         expect(page).to_not have_content(@chore1.title)

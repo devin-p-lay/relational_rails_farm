@@ -1,10 +1,12 @@
 class FarmersController < ApplicationController
   def index
-    if params[:search]
+    if params[:sort]
+      @farmers = Farmer.most_chores
+    elsif params[:search]
       @farmers = Farmer.exact_search(params[:search])
     else
       @farmers = Farmer.order_by_most_recently_created
-    end 
+    end
   end
 
   def show

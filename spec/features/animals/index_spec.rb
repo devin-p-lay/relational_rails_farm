@@ -47,5 +47,13 @@ describe 'Animal Index Page' do
         expect(page).to_not have_content(@animal1.name)
       end
     end
+
+    describe "link to show page" do
+      it "the animal names are links to their animal show page" do
+        click_link "Peppa the Pig"
+
+        expect(current_path).to eq("/animals/#{@animal1.id}")
+      end
+    end
   end
 end

@@ -32,6 +32,12 @@ describe Farmer do
           expect(Farmer.exact_search("Paul Leonard")).to eq([@farmer1])
         end
       end
+
+      describe '::most_chores' do
+        it "can sort farmers by most chores" do
+          expect(Farmer.most_chores).to eq([@farmer1, @farmer2])
+        end
+      end
     end
 
     describe '#instance_methods' do

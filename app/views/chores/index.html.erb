@@ -1,11 +1,11 @@
 <h1> Chores </h1>
-
+<hr>
 <%  @chores.each do |chore|  %>
   <div id="chore-<%= chore.id %>">
-    <h3><%= chore.title %></h3>
+    <h3><%= link_to "#{chore.title}", "/chores/#{chore.id}" %></h3>
     <p>Duration(in hours): <%= chore.duration %></p>
     <p>Daily chore: <%= chore.daily %></p>
-    <p><%= link_to 'edit', "chores/#{chore.id}/edit" %></p>
-    <p><%= link_to "Delete #{chore.title}", "chores/#{chore.id}/destroy", method: :delete %></p>
+    <p><%= link_to 'edit', "chores/#{chore.id}/edit" %> | <%= link_to "delete", "chores/#{chore.id}/destroy", method: :delete %></p>
+    <hr>
   </div>
 <% end %>
