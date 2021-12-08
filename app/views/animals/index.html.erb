@@ -3,7 +3,7 @@
 
 <% @animals.each do |animal| %>
   <div id="animal-<%= animal.id %>">
-    <h3><%= animal.name %></h3>
+    <h3><%= link_to "#{animal.name}", "animals/#{animal.id}" %></h3>
     <p>Age: <%= animal.age %> </p>
     <p>Rescue: <%= animal.rescue %> </p>
     <p><%= link_to 'edit', "animals/#{animal.id}/edit" %> | <%= link_to "delete", "animals/#{animal.id}/destroy", method: :delete %></p>
