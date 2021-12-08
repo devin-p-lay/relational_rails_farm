@@ -1,5 +1,5 @@
 <h1> Chores </h1>
-
+<hr>
 <%  @chores.each do |chore|  %>
   <div id="chore-<%= chore.id %>">
     <h3><%= chore.title %></h3>
@@ -7,5 +7,6 @@
     <p>Daily chore: <%= chore.daily %></p>
     <p><%= link_to 'edit', "chores/#{chore.id}/edit" %></p>
     <p><%= link_to "Delete #{chore.title}", "chores/#{chore.id}/destroy", method: :delete %></p>
+    <hr>
   </div>
 <% end %>

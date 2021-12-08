@@ -1,6 +1,10 @@
 class FarmsController < ApplicationController
   def index
-    @farms = Farm.order_by_most_recently_created
+    if params[:sort]
+      @farms = Farm.most_animals
+    else
+      @farms = Farm.order_by_most_recently_created
+    end
   end
 
   def show

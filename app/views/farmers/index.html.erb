@@ -1,12 +1,12 @@
 <h1>Farmers</h1>
+<hr>
+<%= link_to "Create New Farmer", '/farmers/new' %> | <%= link_to "Sort by Chore Quantity", '/farmers?sort=asc' %>
+<hr>
 
 <% @farmers.each do |farmer| %>
 <div id="farmer-<%= farmer.id %>">
   <p><%= farmer.name %> - created at: <%= farmer.created_at %>
-    <p><%= link_to 'edit', "/farmers/#{farmer.id}/edit" %></p>
-    <p><%= link_to "Delete #{farmer.name}", "/farmers/#{farmer.id}/destroy", method: :delete, data: { confirm: "Are you sure?" } %></p>
-
+    <p><%= link_to 'edit', "/farmers/#{farmer.id}/edit" %> | <%= link_to "Delete #{farmer.name}", "/farmers/#{farmer.id}/destroy", method: :delete, data: { confirm: "Are you sure?" } %></p>
+    <hr>
 </div>
 <% end %>
-
-<%= link_to "Create New Farmer", '/farmers/new' %>

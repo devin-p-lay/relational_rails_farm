@@ -5,6 +5,19 @@ describe 'Farm Index Page' do
     @farm1 = Farm.create!(name: "Blue Bell Farms", acreage: 100, family_owned: true)
     @farm2 = Farm.create!(name: "Lake Hill Farms", acreage: 150, family_owned: true)
     @farm3 = Farm.create!(name: "Full Moon Farms", acreage: 200, family_owned: false)
+    @animal1  = @farm1.animals.create!(name: "Peppa the Pig", age: 3, rescue: true)
+    @animal2  = @farm1.animals.create!(name: "Carly the Cow", age: 5, rescue: true)
+    @animal3  = @farm1.animals.create!(name: "David the Dog", age: 7, rescue: false)
+    @animal4  = @farm1.animals.create!(name: "Pontz the Pig", age: 6, rescue: true)
+    @animal5  = @farm1.animals.create!(name: "Caleb the Cow", age: 8, rescue: true)
+    @animal6  = @farm2.animals.create!(name: "Kevin the Cat", age: 9, rescue: true)
+    @animal7  = @farm2.animals.create!(name: "Peter the Pig", age: 6, rescue: true)
+    @animal8  = @farm2.animals.create!(name: "Cassy the Cow", age: 3, rescue: true)
+    @animal9  = @farm2.animals.create!(name: "Dorie the Dog", age: 2, rescue: true)
+    @animal10 = @farm3.animals.create!(name: "Perry the Pig", age: 6, rescue: true)
+    @animal11 = @farm3.animals.create!(name: "Caash the Cow", age: 3, rescue: true)
+    @animal12 = @farm3.animals.create!(name: "Derek the Dog", age: 2, rescue: true)
+
     visit '/farms'
   end
 
@@ -52,6 +65,14 @@ describe 'Farm Index Page' do
         end
         expect(current_path).to eq("/farms")
         expect(page).to_not have_content(@farm3.name)
+      end
+    end
+
+    describe 'farm animal sort' do
+      it 'a link that sorts farms by number of animals' do
+        click_link "Sort by Animal Quantity"
+        expect(@farm1.name).to appear_before(@farm2.name)
+        expect(@farm2.name).to appear_before(@farm3.name)
       end
     end
   end

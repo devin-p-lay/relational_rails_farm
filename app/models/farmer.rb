@@ -15,4 +15,11 @@ class Farmer < ApplicationRecord
   def duration_filter(duration)
     chores.where("duration > ?", duration)
   end
+
+  def self.most_chores
+    farmer = Farmer.all.sort do |farmer|
+      farmer.chore_count
+    end
+    farmer.reverse
+  end
 end
