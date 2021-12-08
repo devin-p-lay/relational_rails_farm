@@ -59,7 +59,7 @@ describe 'Farmer Index Page' do
     describe 'destroy farmer' do
       it "link to delete next to each name" do
         within "#farmer-#{@farmer1.id}" do
-          click_link "Delete #{@farmer1.name}"
+          click_link "delete"
         end
 
         expect(current_path).to eq("/farmers")
@@ -72,6 +72,14 @@ describe 'Farmer Index Page' do
         click_link "Sort by Chore Quantity"
         expect(@farmer1.name).to appear_before(@farmer2.name)
         expect(@farmer2.name).to appear_before(@farmer3.name)
+      end
+    end
+
+    describe 'farmer name is a link' do
+      it "that goes to farmer_chores index" do
+        click_link "#{@farmer1.name}"
+
+        expect(current_path).to eq("/farmers/#{@farmer1.id}/chores")
       end
     end
   end
